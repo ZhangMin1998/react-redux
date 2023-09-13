@@ -1,9 +1,12 @@
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { add, reduce, addTaskList } from "./store/modules/counterStore"
+import { fetchData } from "./store/modules/channelStore"
 
 function App() {
   // 使用数据
   const { count, taskList } = useSelector(state => state.counter)
+  const { channelList } = useSelector(state => state.channel)
 
   // 修改数据
   const dispatch = useDispatch()
@@ -26,6 +29,10 @@ function App() {
     dispatch(action)
   }
 
+  useEffect(() => {
+    dispatch(fetchData())
+  }, [dispatch])
+
   return (
     <div className="App">
       { count }
@@ -42,6 +49,16 @@ function App() {
           taskList.map((item, index) => (
             <li key={index}>
               {item}
+            </li>
+          ))
+        }
+      </div>
+      <div>异步数据获取：</div>
+      <div>
+        {
+          channelList.map((item) => (
+            <li key={item.id}>
+              {item.name}
             </li>
           ))
         }
