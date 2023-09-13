@@ -69,6 +69,12 @@ function App() {
 
 export default App
 
+
+// 组件使用store中的数据需要借助一个hook方法，叫做useSelector
+// useSelector(state => state.模块名)
+// 方法的返回值为一个对象，对象中包含store子模块中的所有数据
+
+
 // 修改store中的数据有俩个核心步骤
 // 1. 使用counterStore模块中导出的add方法创建action对象
 // 2. 通过dispatch函数以action作为参数传入完成数据更新

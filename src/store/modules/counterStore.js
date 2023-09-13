@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const counter = createSlice({
+const counter1 = createSlice({
   // 模块名唯一
   name: 'counter',
 
@@ -28,9 +28,9 @@ const counter = createSlice({
 })
 
 // 生成修改数据的方法导出
-const { add, reduce, addTaskList } = counter.actions
+const { add, reduce, addTaskList } = counter1.actions
 
-const counterReducer = counter.reducer
+const counterReducer = counter1.reducer
 
 // 导出修改数据的函数
 export { add, reduce, addTaskList }

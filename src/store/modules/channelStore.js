@@ -19,6 +19,8 @@ const channel = createSlice({
 
 // 创建异步
 const { setChannelList } = channel.actions
+// 封装一个函数 在函数中return一个新函数 在新函数中封装异步
+// 得到数据之后通过dispatch函数 触发修改
 const fetchData = () => {
   return async (dispatch) => {
     fetch('http://geek.itheima.net/v1_0/channels').then(
