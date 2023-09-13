@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux"
-import { add, reduce } from "./store/modules/counterStore"
+import { add, reduce, addTaskList } from "./store/modules/counterStore"
 
 function App() {
   // 使用数据
-  const { count } = useSelector(state => state.counter)
+  const { count, taskList } = useSelector(state => state.counter)
 
   // 修改数据
   const dispatch = useDispatch()
@@ -21,12 +21,31 @@ function App() {
     // 2. 提交action进行数据更新
     dispatch(action)
   }
+  const pushTaskList = () => {
+    const action = addTaskList('vue')
+    dispatch(action)
+  }
 
   return (
     <div className="App">
       { count }
-      <button onClick={clickAdd}>+</button>
-      <button onClick={clickReduce}>-</button>
+      <div>
+        <button onClick={clickAdd}>+</button>
+        <button onClick={clickReduce}>-</button>
+      </div>
+      <div>
+        <button onClick={pushTaskList}>push</button>
+        {/* <button onClick={() => dispatch(addTaskList('vue'))}>push</button> */}
+      </div>
+      <div>
+        {
+          taskList.map((item, index) => (
+            <li key={index}>
+              {item}
+            </li>
+          ))
+        }
+      </div>
     </div>
   )
 }
