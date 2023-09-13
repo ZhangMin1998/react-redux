@@ -6,23 +6,27 @@ const counter = createSlice({
 
   // 初始数据
   initialState: {
-    count: 1
+    count: 1,
+    age: 25
   },
 
   // 修改数据的同步方法
   reducers: {
     add (state) {
       state.count++
+    },
+    reduce (state) {
+      state.count--
     }
   }
 })
 
-const { add } = counter.actions
+const { add, reduce } = counter.actions
 
 const counterReducer = counter.reducer
 
 // 导出修改数据的函数
-export { add }
+export { add, reduce }
 // 导出reducer
 export default counterReducer
 
