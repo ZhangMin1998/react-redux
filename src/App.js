@@ -4,7 +4,7 @@ import { add, reduce, addTaskList } from "./store/modules/counterStore"
 import { fetchData } from "./store/modules/channelStore"
 
 function App() {
-  // 使用数据
+  // 使用数据 state.xxx 的xxx 与store/index.js里面对应
   const { count, taskList } = useSelector(state => state.counter)
   const { channelList } = useSelector(state => state.channel)
 
